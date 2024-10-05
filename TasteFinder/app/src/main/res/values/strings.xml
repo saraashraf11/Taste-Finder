@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Taste Finder</string>
+    <string name="welcome_to_taste_finder">Welcome To Taste Finder</string>
+    <string name="get_started">Get Started</string>
+</resources>
