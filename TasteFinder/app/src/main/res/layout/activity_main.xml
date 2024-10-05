@@ -24,58 +24,74 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/wave2"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="133dp" />
+        tools:layout_editor_absoluteY="32dp" />
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="640dp"
-        android:text="Welcome to Taste Finder"
+        android:layout_marginTop="656dp"
+        android:text="@string/welcome_to_taste_finder"
         android:textColor="#290D4B"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/get_started"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="don't have an account?"
-        android:textColor="#290D4B"
+        android:layout_marginTop="8dp"
+        android:text="We are here to help you discover the best restaurants in Fayoum, along with their menus, making it easier for you to choose your favorite meal and enjoy a great dining experience."
+        android:textColor="#401573"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:textColor="@color/blue"
+        app:srcCompat="@drawable/blob_left"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="374dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/blob_right"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="374dp" />
+
+    <TextView
+        android:id="@+id/registerTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up"
+        android:textColor="#DEDBE2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="688dp" />
+
+    <TextView
+        android:id="@+id/loginTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="LogIn"
+        android:textColor="#DEDBE2"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        tools:layout_editor_absoluteY="619dp" />
-
+        tools:layout_editor_absoluteY="688dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
