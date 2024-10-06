@@ -18,18 +18,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Register
-        val register = findViewById<TextView>(R.id.registerTxt)
-        register.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-
-        // LogIn
-        val logIn = findViewById<TextView>(R.id.loginTxt)
-        register.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
+       // Register
+//       val register = findViewById<Button>(R.id.registerBtn)
+//       register.setOnClickListener {
+//            val intent = Intent(this, RegisterActivity::class.java)
+//           startActivity(intent)
+//       }
     }
 }
