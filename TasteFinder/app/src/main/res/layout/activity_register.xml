@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,6 +9,7 @@
     android:background="#A6B1E1"
     tools:context=".RegisterActivity">
 
+    <!-- Register Text -->
     <TextView
         android:id="@+id/register"
         android:layout_width="wrap_content"
@@ -18,135 +19,165 @@
         android:text="Register"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="40sp"/>
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Name Input -->
     <EditText
         android:id="@+id/name"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
         android:background="@drawable/rounded_corners"
         android:hint="Name"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:paddingLeft="20dp"
         android:textSize="20sp"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Email Input -->
     <EditText
         android:id="@+id/email"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="240dp"
         android:background="@drawable/rounded_corners"
         android:hint="Email"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:paddingLeft="20dp"
         android:textSize="20sp"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Phone Input -->
     <EditText
         android:id="@+id/phone"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="310dp"
         android:background="@drawable/rounded_corners"
         android:hint="Phone"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:paddingLeft="20dp"
         android:textSize="20sp"
-        android:inputType="phone"/>
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Password Input -->
     <EditText
         android:id="@+id/password"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="380dp"
         android:background="@drawable/rounded_corners"
         android:hint="Password"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:paddingLeft="20dp"
         android:textSize="20sp"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/phone"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Confirm Password Input -->
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
         android:background="@drawable/rounded_corners"
         android:hint="Confirm Password"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:paddingLeft="20dp"
         android:textSize="20sp"
-        android:inputType="textPassword"/>
-    
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Register Button -->
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginTop="530dp"
-        android:layout_centerHorizontal="true"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:backgroundTint="#424874"/>
+        android:backgroundTint="#424874"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Line -->
     <View
         android:id="@+id/line"
         android:layout_width="100dp"
         android:layout_height="1dp"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="630dp"
-        android:background="#424874" />
+        android:background="#424874"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- OR Text -->
     <TextView
         android:id="@+id/orText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="620dp"
         android:text="OR"
         android:textColor="@android:color/white"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Line 2 -->
     <View
         android:id="@+id/line2"
         android:layout_width="100dp"
         android:layout_height="1dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="630dp"
         android:layout_marginEnd="40dp"
-        android:background="#424874" />
+        android:background="#424874"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Facebook Icon -->
     <ImageView
         android:id="@+id/facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="670dp"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
-        android:src="@drawable/facebook_color_svgrepo_com" />
+        android:src="@drawable/facebook_color_svgrepo_com"
+        app:layout_constraintTop_toBottomOf="@+id/orText"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Google Icon -->
     <ImageView
         android:id="@+id/google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="670dp"
         android:layout_marginEnd="100dp"
-        android:src="@drawable/google_svgrepo_com" />
+        android:layout_marginTop="10dp"
+        android:src="@drawable/google_svgrepo_com"
+        app:layout_constraintTop_toBottomOf="@+id/orText"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
