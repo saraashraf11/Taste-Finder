@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
         } else {
             // Proceed with registration logic (e.g., sending data to a server or saving locally)
-            Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
         }
     }
 }
