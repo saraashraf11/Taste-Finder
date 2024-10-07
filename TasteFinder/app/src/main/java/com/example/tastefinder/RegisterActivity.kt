@@ -66,6 +66,8 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             // Proceed with registration logic (e.g., sending data to a server or saving locally)
             Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 }
