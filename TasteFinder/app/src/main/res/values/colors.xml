@@ -9,4 +9,5 @@
     <color name="grey">#919191</color>
     <color name="darkGray">#616161</color>
     <color name="blue">#3C51C5</color>
+    <color name="Transparent">#00FFFFFF</color>
 </resources>

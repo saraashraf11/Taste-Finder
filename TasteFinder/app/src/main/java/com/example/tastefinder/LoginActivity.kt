@@ -1,8 +1,10 @@
 package com.example.tastefinder
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -13,9 +15,8 @@ import androidx.core.view.WindowInsetsCompat
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var emailEditText: EditText
-
     private lateinit var passwordEditText: EditText
-
+    private lateinit var backButton :ImageButton
     private lateinit var loginButton: Button
     private lateinit var facebookImageView: ImageView
     private lateinit var googleImageView: ImageView
@@ -23,11 +24,17 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-
+        loginButton = findViewById(R.id.btnLogin)
         emailEditText = findViewById(R.id.Email_login)
         passwordEditText = findViewById(R.id.Password_login)
         facebookImageView = findViewById(R.id.facebook_login)
         googleImageView = findViewById(R.id.google_login)
+        backButton = findViewById(R.id.btnBack)
+
+        backButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         loginButton.setOnClickListener {
             loginUser()
@@ -42,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
         googleImageView.setOnClickListener {
             Toast.makeText(this, "Google Login", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     private fun loginUser() {

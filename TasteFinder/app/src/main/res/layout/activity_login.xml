@@ -37,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvOr" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="107dp"
         android:layout_height="50dp"
         android:layout_marginEnd="272dp"
@@ -131,5 +132,18 @@
         android:src="@drawable/facebook_color_svgrepo_com"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvOr" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="324dp"
+        android:backgroundTint="@color/Transparent"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388"
+        app:srcCompat="@drawable/left_navigation_back_svgrepo_com" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

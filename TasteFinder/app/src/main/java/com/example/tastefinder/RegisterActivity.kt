@@ -1,5 +1,6 @@
 package com.example.tastefinder
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +15,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var registerButton: Button
     private lateinit var facebookImageView: ImageView
     private lateinit var googleImageView: ImageView
-
+    private lateinit var backButton :ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -28,6 +29,12 @@ class RegisterActivity : AppCompatActivity() {
         registerButton = findViewById(R.id.registerBtn)
         facebookImageView = findViewById(R.id.facebook)
         googleImageView = findViewById(R.id.google)
+        backButton = findViewById(R.id.buttonBack)
+
+        backButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         // Set onClick listener for register button
         registerButton.setOnClickListener {
