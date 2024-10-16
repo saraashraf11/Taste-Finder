@@ -8,7 +8,7 @@
     android:layout_marginBottom="77dp"
     android:layout_marginTop="20dp"
     android:padding="15dp"
-    tools:context=".FavoritesFragment">
+    tools:context=".CategoryFragment">
 
     <TextView
         android:id="@+id/textView"

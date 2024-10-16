@@ -10,8 +10,7 @@
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp"
     android:padding="10dp"
-    android:background="#A6B1E1"
-    android:id="@+id/fav_restaurant">
+    android:background="#A6B1E1">
 
     <ImageView
         android:id="@+id/logo"
@@ -36,12 +35,17 @@
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/favorite"
+    <TextView
+        android:id="@+id/distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/heart_svgrepo_com"
+        android:layout_marginStart="192dp"
+        android:text="10 km"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.506" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

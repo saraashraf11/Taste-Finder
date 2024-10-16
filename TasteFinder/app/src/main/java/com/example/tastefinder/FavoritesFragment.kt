@@ -1,59 +1,83 @@
 package com.example.tastefinder
 
+import FavoritesAdapter
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoritesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoritesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var emptyView: TextView
+    private lateinit var progressBar: ProgressBar
+
+    private lateinit var favoritesAdapter: FavoritesAdapter
+    private val favoriteItems = mutableListOf<Restaurant>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        val view = inflater.inflate(R.layout.fragment_favorites, container, false)
+
+        // Initialize views
+        recyclerView = view.findViewById(R.id.recyclerView)
+        emptyView = view.findViewById(R.id.emptyView)
+        progressBar = view.findViewById(R.id.progressBar)
+
+        // Set up RecyclerView and Adapter
+        favoritesAdapter = FavoritesAdapter(favoriteItems) { restaurant ->
+            // Handle favorite icon click
+            // You can add click logic here if needed
+        }
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = favoritesAdapter
+
+        // Load the data (simulated)
+        loadFavorites()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FavoritesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FavoritesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun loadFavorites() {
+        // Show the progress bar while loading data
+        progressBar.visibility = View.VISIBLE
+
+        // Simulating data loading with a delay
+        recyclerView.postDelayed({
+            // Add items to the list
+            favoriteItems.addAll(
+                listOf(
+//                    Restaurant("Restaurant 1", 10, R.drawable.google_svgrepo_com),
+//                    Restaurant("Restaurant 2", 6, R.drawable.facebook_color_svgrepo_com),
+//                    Restaurant("Restaurant 3", 9, R.drawable.heart_svgrepo_com)
+                )
+            )
+
+            // Hide the progress bar
+            progressBar.visibility = View.GONE
+
+            // Update the UI after loading data
+            updateUI()
+        }, 2000) // 2-second delay to simulate loading
+    }
+
+    private fun updateUI() {
+        if (favoriteItems.isEmpty()) {
+            // Show empty view if no data is available
+            emptyView.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        } else {
+            // Show RecyclerView if data is available
+            emptyView.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+            favoritesAdapter.notifyDataSetChanged()
+        }
     }
 }

@@ -1,18 +1,13 @@
 package com.example.tastefinder
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var topFavoritesRecyclerView: RecyclerView
-    private lateinit var categoriesRecyclerView: RecyclerView
     private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,8 +45,10 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                 }
                 R.id.nav_location -> {
-                    // You can add code here to navigate to LocationFragment if needed
-                }
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, NearbyFragment())
+                        .addToBackStack(null)
+                        .commit()                }
             }
             true
         }
