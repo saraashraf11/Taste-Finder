@@ -9,8 +9,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class LoginActivity : AppCompatActivity() {
 
@@ -32,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         backButton = findViewById(R.id.btnBack)
 
         backButton.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, EnteryActivity::class.java)
             startActivity(intent)
         }
 
@@ -62,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         } else {
             // Proceed with registration logic (e.g., sending data to a server or saving locally)
             Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
