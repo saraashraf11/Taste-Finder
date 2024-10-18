@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "543577487978",
+    "project_id": "taste-finder-106e7",
+    "storage_bucket": "taste-finder-106e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543577487978:android:251dfa59675a59d566a813",
+        "android_client_info": {
+          "package_name": "com.example.tastefinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYfyDmpTmURZCsRg5PS1P_bf7wu7AMiBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

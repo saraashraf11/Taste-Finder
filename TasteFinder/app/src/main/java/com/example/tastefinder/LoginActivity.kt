@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private lateinit var facebookImageView: ImageView
     private lateinit var googleImageView: ImageView
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -28,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
         facebookImageView = findViewById(R.id.facebook_login)
         googleImageView = findViewById(R.id.google_login)
         backButton = findViewById(R.id.btnBack)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         backButton.setOnClickListener{
             val intent = Intent(this, EnteryActivity::class.java)
@@ -55,13 +59,20 @@ class LoginActivity : AppCompatActivity() {
         val email = emailEditText.text.toString().trim()
         val password = passwordEditText.text.toString().trim()
 
-        if ( email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+         if(email.isNotEmpty() && password.isNotEmpty()) {
+
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if(it.isSuccessful) {
+                        Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+
+                    }else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                }
         } else {
-            // Proceed with registration logic (e.g., sending data to a server or saving locally)
-            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
         }
     }
 }

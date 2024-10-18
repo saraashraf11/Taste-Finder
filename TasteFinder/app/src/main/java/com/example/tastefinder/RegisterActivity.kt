@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -16,6 +17,8 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var facebookImageView: ImageView
     private lateinit var googleImageView: ImageView
     private lateinit var backButton :ImageButton
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -30,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         facebookImageView = findViewById(R.id.facebook)
         googleImageView = findViewById(R.id.google)
         backButton = findViewById(R.id.buttonBack)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         backButton.setOnClickListener{
             val intent = Intent(this, EnteryActivity::class.java)
@@ -59,15 +63,24 @@ class RegisterActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString().trim()
         val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
-        if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if(name.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+            if(password == confirmPassword) {
+
+                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if(it.isSuccessful) {
+                        Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+
+                    }else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }else {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            }
+        }else {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
-        } else if (password != confirmPassword) {
-            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
-        } else {
-            // Proceed with registration logic (e.g., sending data to a server or saving locally)
-            Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }
     }
 }
