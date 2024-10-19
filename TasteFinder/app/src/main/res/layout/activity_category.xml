@@ -13,13 +13,13 @@
         android:layout_marginBottom="77dp"
         android:layout_marginTop="20dp"
         android:padding="15dp"
-        tools:context=".FavoritesFragment">
+        tools:context=".CategoryActivity">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Favorites"
+            android:text="Category"
             android:textColor="@color/black"
             android:textSize="50sp"
             android:textStyle="bold"
@@ -44,7 +44,7 @@
             android:id="@+id/emptyView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No favorites found!"
+            android:text="No restaurants found!"
             android:textSize="18sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="@+id/recyclerView"

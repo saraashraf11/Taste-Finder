@@ -34,7 +34,6 @@ class FavoritesFragment : Fragment() {
         // Set up RecyclerView and Adapter
         favoritesAdapter = FavoritesAdapter(favoriteItems) { restaurant ->
             // Handle favorite icon click
-            // You can add click logic here if needed
         }
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = favoritesAdapter
@@ -46,12 +45,10 @@ class FavoritesFragment : Fragment() {
     }
 
     private fun loadFavorites() {
-        // Show the progress bar while loading data
         progressBar.visibility = View.VISIBLE
 
-        // Simulating data loading with a delay
+        // Simulate data loading
         recyclerView.postDelayed({
-            // Add items to the list
             favoriteItems.addAll(
                 listOf(
 //                    Restaurant("Restaurant 1", 10, R.drawable.google_svgrepo_com),
@@ -60,21 +57,16 @@ class FavoritesFragment : Fragment() {
                 )
             )
 
-            // Hide the progress bar
             progressBar.visibility = View.GONE
-
-            // Update the UI after loading data
             updateUI()
-        }, 2000) // 2-second delay to simulate loading
+        }, 2000) // 2-second delay
     }
 
     private fun updateUI() {
         if (favoriteItems.isEmpty()) {
-            // Show empty view if no data is available
             emptyView.visibility = View.VISIBLE
             recyclerView.visibility = View.GONE
         } else {
-            // Show RecyclerView if data is available
             emptyView.visibility = View.GONE
             recyclerView.visibility = View.VISIBLE
             favoritesAdapter.notifyDataSetChanged()
